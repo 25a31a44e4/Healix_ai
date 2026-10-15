@@ -1,0 +1,93 @@
+# ==========================================
+# CarePulse AI - Git Ignore Policy
+# ==========================================
+
+# 1. Python Environment & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# 2. Testing & Quality Cache
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# 3. Environment Variables & Credentials (CRITICAL: Never commit secrets)
+.env
+.env.*
+*.env
+secrets.toml
+.streamlit/secrets.toml
+credentials.json
+*.pem
+*.key
+
+# 4. Streamlit Configuration
+# Keep .streamlit/config.toml tracked, but ignore runtime cache
+.streamlit/*.log
+
+# 5. Sensitive Operational Logs & Local Patient Data
+# Exclude local supervisor overrides, contact outcome logs, and exported call lists containing patient info
+reports/call_list_overrides.json
+reports/contact_outcomes.json
+reports/weekly_call_list_*.csv
+reports/*.pdf
+
+# 6. Temporary Files & Local Databases
+data/temp_*
+data/*.tmp
+data/*.parquet
+data/*.sqlite
+data/*.sqlite3
+data/*.db
+*.log
+
+# 7. Unused Raw Datasets & Local Archives (avoid bloated Git history)
+data/healthcare_dataset.csv
+archive/
+healix/
+
+# 8. OS-Specific Artifacts
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 9. IDE & Editor Artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
