@@ -170,6 +170,141 @@ def inject_custom_css():
             color: {COLORS['midnight_blue']};
             margin-bottom: 20px;
         }}
+
+        /* ========================================================= */
+        /* Search Boxes, Text Inputs, Dropdowns & Selectbox Styling  */
+        /* Ensure crisp pure white background and dark visible text  */
+        /* ========================================================= */
+
+        /* All text inputs, search boxes, and text areas */
+        div[data-testid="stTextInput"] input,
+        div[data-testid="stSearchInput"] input,
+        div[data-testid="stNumberInput"] input,
+        div[data-testid="stTextArea"] textarea,
+        div[data-baseweb="input"] input,
+        div[data-baseweb="base-input"] input,
+        input[type="text"],
+        input[type="search"] {{
+            background-color: #FFFFFF !important;
+            color: #253449 !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 8px !important;
+            font-size: 0.92rem !important;
+            font-weight: 500 !important;
+            padding: 8px 12px !important;
+            caret-color: #16A6A1 !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+        }}
+
+        /* Input hover & focus states */
+        div[data-testid="stTextInput"] input:focus,
+        div[data-testid="stSearchInput"] input:focus,
+        div[data-testid="stNumberInput"] input:focus,
+        div[data-baseweb="input"]:focus-within,
+        div[data-baseweb="base-input"]:focus-within {{
+            border-color: #16A6A1 !important;
+            box-shadow: 0 0 0 2px rgba(22, 166, 161, 0.2) !important;
+        }}
+
+        /* Input placeholders */
+        div[data-testid="stTextInput"] input::placeholder,
+        div[data-testid="stSearchInput"] input::placeholder,
+        div[data-baseweb="input"] input::placeholder,
+        input::placeholder {{
+            color: #738197 !important;
+            opacity: 1 !important;
+        }}
+
+        /* Selectbox & Dropdown Containers (Closed State) */
+        div[data-testid="stSelectbox"] > div,
+        div[data-baseweb="select"],
+        div[data-baseweb="select"] > div {{
+            background-color: #FFFFFF !important;
+            color: #253449 !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+        }}
+
+        /* Selected text inside selectbox */
+        div[data-baseweb="select"] span,
+        div[data-baseweb="select"] div,
+        div[data-testid="stSelectbox"] div[role="combobox"] {{
+            color: #253449 !important;
+            font-weight: 500 !important;
+        }}
+
+        /* Dropdown arrow icons */
+        div[data-baseweb="select"] svg,
+        div[data-testid="stSelectbox"] svg {{
+            fill: #253449 !important;
+        }}
+
+        /* Dropdown Menu (Open Popover List) */
+        div[data-baseweb="popover"],
+        div[data-baseweb="menu"],
+        ul[role="listbox"],
+        div[data-testid="stSelectboxVirtualDropdown"] {{
+            background-color: #FFFFFF !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+        }}
+
+        /* Dropdown options inside listbox */
+        ul[role="listbox"] li[role="option"],
+        div[data-baseweb="menu"] li,
+        div[data-baseweb="menu"] div[role="option"] {{
+            background-color: #FFFFFF !important;
+            color: #253449 !important;
+            font-size: 0.92rem !important;
+            padding: 8px 14px !important;
+        }}
+
+        /* Hovered / highlighted dropdown option */
+        ul[role="listbox"] li[role="option"]:hover,
+        ul[role="listbox"] li[role="option"][aria-selected="true"],
+        div[data-baseweb="menu"] li:hover {{
+            background-color: #EAF3FC !important;
+            color: #142D4E !important;
+        }}
+
+        /* MultiSelect component */
+        div[data-testid="stMultiSelect"] > div,
+        div[data-testid="stMultiSelect"] div[data-baseweb="select"] > div {{
+            background-color: #FFFFFF !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 8px !important;
+        }}
+
+        /* MultiSelect chips / tags */
+        div[data-testid="stMultiSelect"] span[data-baseweb="tag"] {{
+            background-color: #EAF3FC !important;
+            border: 1px solid #C5DCF5 !important;
+            border-radius: 6px !important;
+        }}
+
+        div[data-testid="stMultiSelect"] span[data-baseweb="tag"] span {{
+            color: #142D4E !important;
+            font-weight: 500 !important;
+        }}
+
+        div[data-testid="stMultiSelect"] span[data-baseweb="tag"] svg {{
+            fill: #142D4E !important;
+        }}
+
+        /* Inputs inside Sidebar specifically (ensure high contrast) */
+        section[data-testid="stSidebar"] div[data-testid="stTextInput"] input,
+        section[data-testid="stSidebar"] div[data-testid="stSelectbox"] > div,
+        section[data-testid="stSidebar"] div[data-baseweb="select"] > div {{
+            background-color: #FFFFFF !important;
+            color: #253449 !important;
+            border: 1px solid #CBD5E1 !important;
+        }}
+
+        section[data-testid="stSidebar"] div[data-baseweb="select"] * {{
+            color: #253449 !important;
+        }}
     </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
